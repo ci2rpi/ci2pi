@@ -14,3 +14,11 @@ spec:
         image: oysteinjakobsen/armv7-neo4j
         ports:
         - containerPort: 7474
+        volumeMounts:
+        - mountPath: "/data"
+          name: neo4jvolume
+      volumes:
+      - name: neo4jvolume
+        persistentVolumeClaim:
+         claimName: neo4jpv
+
