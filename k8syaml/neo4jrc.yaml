@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: neo4jrc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: neo4j
+    spec:
+      containers:
+      - name: neo4j
+        image: oysteinjakobsen/armv7-neo4j
+        ports:
+        - containerPort: 7474

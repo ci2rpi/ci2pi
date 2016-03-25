@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: owncloudrc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: owncloud
+    spec:
+      containers:
+      - name: owncloud
+        image: armv7/armhf-owncloud
+        ports:
+        - containerPort: 80
