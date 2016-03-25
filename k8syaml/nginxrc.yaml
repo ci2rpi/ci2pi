@@ -11,6 +11,13 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: mazzolino/armhf-nginx
+        image: mazzolino/armhf-nginx 
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: nginxvolume
         ports:
         - containerPort: 80
+      volumes:
+      - name: nginxvolume
+        persistentVolumeClaim:
+         claimName: nginxpv

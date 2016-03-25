@@ -7,10 +7,12 @@ metadata:
 spec:
 #   type: LoadBalancer
   type: NodePort  
+  selector:
+    app: owncloud
   ports:
   - port: 80
     targetPort: 80
     nodePort: 30180
     protocol: TCP
-  selector:
-    app: owncloud
+#  externalIPs:
+#  - 192.168.1.16
