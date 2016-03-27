@@ -12,5 +12,13 @@ spec:
       containers:
       - name: owncloud
         image: armv7/armhf-owncloud
+        volumeMounts:
+        - mountPath: "/var/www/html"
+          name: owncloudvolume
         ports:
         - containerPort: 80
+      volumes:
+      - name: owncloudvolume
+        persistentVolumeClaim:
+         claimName: owncloudpv
+
