@@ -1,10 +1,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: nginxconfpvc
+  name: nginxhtmlpvc
 spec:
   accessModes:
     - ReadOnlyMany
   resources:
     requests:
-      storage: 1Mi
+      storage: 10Mi

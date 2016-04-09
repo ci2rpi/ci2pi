@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+<!--#if expr="$HOSTNAME = /nginxrc-([a-k].*)/" -->
+     body {background-color:red;}
+<!--#elif expr="$HOSTNAME = /nginxrc-([j-z].*)/" -->
+         body {background-color:lightblue;}
+<!--#else -->
+         body {background-color:lightgreen;}
+<!--#endif -->
+
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p><em>Hello World</em></p>
+<h2><!--#echo var="hostname" default="no" --></h2>
+</body>
+</html>
+
