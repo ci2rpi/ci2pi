@@ -10,5 +10,5 @@ spec:
  persistentVolumeReclaimPolicy: Retain
  nfs:
   path: /opt/data/nginx/html
-  server: 192.168.1.16
+  server: 192.168.10.16
 
