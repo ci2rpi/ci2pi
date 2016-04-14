@@ -7,10 +7,10 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginxliveness
     spec:
       containers:
-      - name: nginx
+      - name: nginxliveness
         image: troyfontaine/armhf-nginx
         volumeMounts:
         - mountPath: "/usr/share/nginx/html"
@@ -21,6 +21,12 @@ spec:
 #          subPath: conf      
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz.html
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
       volumes:
       - name: nginxvolumehtml   
         persistentVolumeClaim:
