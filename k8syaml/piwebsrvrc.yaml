@@ -13,12 +13,11 @@ spec:
       - name: piwebsrv
         image: mahnkong/rpi-websrv:0.1.1
         volumeMounts:
-        - mountPath: /
-          name: source   
+        - mountPath: /rpi-websrv-data
+          name: piwebsrvdata
         ports:
         - containerPort: 7777
       volumes:
-      - name: source
-        gitRepo:
-          repository: "https://github.com/ci2rpi/rpi-websrv-data.git"
-          revision: "v0.1.0"
+      - name: piwebsrvdata
+        persistentVolumeClaim:
+         claimName: piwebsrvpvc
