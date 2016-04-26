@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: piwebsrvrc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: piwebsrv
+    spec:
+      containers:
+      - name: piwebsrv
+        image: mahnkong/rpi-websrv:0.1.1
+        volumeMounts:
+        - mountPath: /
+          name: source   
+        ports:
+        - containerPort: 7777
+      volumes:
+      - name: source
+        gitRepo:
+          repository: "https://github.com/ci2rpi/rpi-websrv-data.git"
+          revision: "v0.1.0"
