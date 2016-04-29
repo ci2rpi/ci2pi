@@ -13,6 +13,6 @@ if [ "$SLEEP_INTERVALL" == "" ]; then
 fi
 
 while true; do
-    wget -t 1 --timeout=1 -qO - $URL && echo || echo "fail!"
+    wget -t 1 --timeout=1 -qO - $URL || echo "fail!"
     sleep $SLEEP_INTERVALL
 done
