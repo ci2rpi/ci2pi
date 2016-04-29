@@ -5,10 +5,9 @@ metadata:
   labels:
     app: piwebsrv
 spec:
-#   type: LoadBalancer
   type: NodePort  
   ports:
-  - port: 7777
+  - port: 80
     targetPort: 7777
     nodePort: 30007
     protocol: TCP
